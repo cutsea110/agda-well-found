@@ -41,5 +41,13 @@ suc m div zero = suc m
 suc m div suc n = suc ((suc m ∸ suc n) div (suc n))
 
 -- example div
-_div-wf_ : (m : ℕ) → ℕ → ℕ
-m div-wf n = {!!}
+_div-wf_ : ℕ → ℕ → ℕ
+n div-wf d = rec-wf ℕ<-wf (body n) n
+  where
+    n∸d<sn : ∀ n d → n ∸ d <′ suc n
+    n∸d<sn n zero = ≤′-refl
+    n∸d<sn n (suc d) = {!!}
+    body : (d : ℕ) → (n : ℕ) → ((k : ℕ) → k <′ n → ℕ) → ℕ
+    body d zero rec = zero
+    body zero (suc n) rec = suc n
+    body (suc d) (suc n) rec = suc (rec (suc n ∸ suc d) (n∸d<sn n d))

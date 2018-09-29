@@ -46,7 +46,8 @@ n div-wf d = rec-wf ℕ<-wf (body n) n
   where
     n∸d<sn : ∀ n d → n ∸ d <′ suc n
     n∸d<sn n zero = ≤′-refl
-    n∸d<sn n (suc d) = {!!}
+    n∸d<sn zero (suc d) = ≤′-refl
+    n∸d<sn (suc n) (suc d) = ≤′-step (n∸d<sn n d)
     body : (d : ℕ) → (n : ℕ) → ((k : ℕ) → k <′ n → ℕ) → ℕ
     body d zero rec = zero
     body zero (suc n) rec = suc n

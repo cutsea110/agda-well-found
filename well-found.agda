@@ -24,3 +24,9 @@ acc-fold : {A : Set} (_<_ : A → A → Set) {P : A → Set} →
   ((x : A) → ((y : A) → y < x → P y) → P x) →
   (z : A) → Acc _<_ z  → P z
 acc-fold _<_ φ z (acc .z h) = φ z (λ y y<z → acc-fold _<_ φ y (h y y<z))
+
+rec-wf : {A : Set}{_<_ : A → A → Set}{P : A → Set} →
+  well-found _<_ →
+  ((x : A) → ((y : A) → y < x → P y) → P x) →
+  (x : A) → P x
+rec-wf {A}{_<_} wf f x = acc-fold _<_ f x (wf x)

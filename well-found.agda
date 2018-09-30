@@ -60,3 +60,13 @@ _div-wf'_ : ∀ m → ℕ → Acc _<′_ m → ℕ
 (zero div-wf' d) a = zero
 (suc n div-wf' zero) a = suc n
 (suc n div-wf' suc d) (acc .(suc n) h) = suc (((suc n ∸ suc d) div-wf' (suc d)) (h (suc n ∸ suc d) (n∸d<sn n d)))
+
+
+open import Data.Product
+
+-- Upper bound reverse ordering
+_<_≤_ : ℕ → ℕ → ℕ → Set
+m < n ≤ k = m <′ n × n ≤′ k
+
+◁ : ℕ → ℕ → ℕ → Set
+(◁ k) m n = m < n ≤ k

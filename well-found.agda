@@ -70,3 +70,8 @@ m < n ≤ k = m <′ n × n ≤′ k
 
 ◁ : ℕ → ℕ → ℕ → Set
 (◁ k) m n = m < n ≤ k
+
+data _≤′′_ : ℕ → ℕ → Set where
+  ≤′′-refl : ∀ {n} → n ≤′′ n
+  ≤′′-step : ∀ {m n} → suc m ≤′′ n → m ≤′′ n
+

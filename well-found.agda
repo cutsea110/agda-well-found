@@ -35,6 +35,7 @@ rec-wf {A}{_<_} wf f x = acc-fold _<_ f x (wf x)
 -- --------------------------------------------------------------------------
 
 -- example div, which cannot terminating.
+{-# TERMINATING #-}
 _div_ : ℕ → ℕ → ℕ
 zero div n = zero
 suc m div zero = suc m

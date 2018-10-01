@@ -77,6 +77,9 @@ data _≤′′_ : ℕ → ℕ → Set where
   ≤′′-refl : ∀ {n} → n ≤′′ n
   ≤′′-step : ∀ {m n} → suc m ≤′′ n → m ≤′′ n
 
+¬1+n≤n : ∀ {n} → ¬ (suc n ≤′′ n)
+¬1+n≤n {n} = {!!}
+
 m≤n→m≤1+n : ∀ {m n} → m ≤′′ n → m ≤′′ suc n
 m≤n→m≤1+n  = {!!}
 

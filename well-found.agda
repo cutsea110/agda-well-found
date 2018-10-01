@@ -1,6 +1,8 @@
 module well-found where
 
 open import Data.Nat
+open import Relation.Binary.PropositionalEquality
+open import Relation.Nullary
 
 -- | Accessibility
 data Acc {A : Set}(_<_ : A → A → Set) : A → Set where
@@ -75,3 +77,17 @@ data _≤′′_ : ℕ → ℕ → Set where
   ≤′′-refl : ∀ {n} → n ≤′′ n
   ≤′′-step : ∀ {m n} → suc m ≤′′ n → m ≤′′ n
 
+m≤n→m≤1+n : ∀ {m n} → m ≤′′ n → m ≤′′ suc n
+m≤n→m≤1+n  = {!!}
+
+m<n→¬n≤m : ∀ {m n} → m <″ n → ¬ (n ≤′′ m)
+m<n→¬n≤m = {!!}
+
+¬[m<n∧n≤m] : ∀ {m n} → ¬ (m <″ n × n ≤′′ m)
+¬[m<n∧n≤m] = {!!}
+
+≤′′-trans : ∀ {m n k} → m ≤′′ n → n ≤′′ k → m ≤′′ k
+≤′′-trans = {!!}
+
+≤′′-antisym : ∀ {m n} → m ≤′′ n → n ≤′′ m → m ≡ n
+≤′′-antisym = {!!}

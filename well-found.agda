@@ -1,5 +1,6 @@
 module well-found where
 
+open import Data.Empty using (⊥-elim)
 open import Data.Nat
 open import Relation.Binary.PropositionalEquality
 open import Relation.Nullary
